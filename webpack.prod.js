@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'production',
@@ -41,8 +41,12 @@ module.exports = {
           options: {
             targets: "defaults",
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react"
+              ["@babel/preset-env"],
+              ["@babel/preset-react"]
+            ],
+            plugins: [
+              ["@babel/transform-class-properties"],
+              ["@babel/plugin-transform-runtime"]
             ]
           }
         }
@@ -50,13 +54,13 @@ module.exports = {
       {
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				exclude: /node_modules/,
-				type: 'asset/resource',
+				type: 'asset/resource'
 			},
       {
 				test: /\.hbs$/,
 				exclude: /node_modules/,
-				use: ['handlebars-loader'],
-			},
+				use: ['handlebars-loader']
+			}
     ]
   }
 }

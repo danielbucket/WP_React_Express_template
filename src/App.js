@@ -1,12 +1,18 @@
 import React from 'react'
-const robot = require('./robot.jpeg')
+import Header from './pages/Header'
+import Body from './pages/Body'
+import Footer from './pages/Footer'
+import { AppContainer } from './app.styled.js'
 
 export default function App() {
 
   return (
-    <div>
-      <h1>React App</h1>
-      <img src={ robot } alt='robot' />
-    </div>
+    <>
+      <AppContainer >
+        <Header />
+        <Body />
+        <Footer />
+      </AppContainer>
+    </>
   )
 }
