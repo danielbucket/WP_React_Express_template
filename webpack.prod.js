@@ -21,18 +21,11 @@ module.exports = {
       template: './template.hbs',
       description: 'Webpack 5',
       minify: true,
-      chunks: ['main'],
     })
   ],
 
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader, 'css-loader'
-        ],
-      },
       {
         test: /\.(?:js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
@@ -52,14 +45,30 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader'
+        ],
+      },
+      {
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				exclude: /node_modules/,
-				type: 'asset/resource'
+				type: 'asset/resource',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash].[ext]',
+              outputPath: '/assets'
+            }
+          }
+        ]
 			},
       {
 				test: /\.hbs$/,
 				exclude: /node_modules/,
-				use: ['handlebars-loader']
+        loader: 'handlebars-loader',
 			}
     ]
   }
