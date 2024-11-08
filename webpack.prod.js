@@ -55,15 +55,6 @@ module.exports = {
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				exclude: /node_modules/,
 				type: 'asset/resource',
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[contenthash].[ext]',
-              outputPath: '/assets'
-            }
-          }
-        ]
 			},
       {
 				test: /\.hbs$/,
