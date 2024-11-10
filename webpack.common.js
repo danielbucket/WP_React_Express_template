@@ -4,7 +4,6 @@ const { merge } = require('webpack-merge')
 const path = require('path')
 
 module.exports = (env) => {
-  console.log('ENV: ', env)
   const config = env.development ?
   require('./webpack.dev.js') : require('./webpack.prod.js')
 
