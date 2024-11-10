@@ -19,3 +19,14 @@ Successful production compilation requires that the Webpack environment variable
 ```bash
 "build": "NODE_ENV=production webpack --config webpack.common.js"
 ```
+
+Note: For deployment, a .env file should be supplied that sets these variables:
+```bash
+NODE_ENV=production
+PORT=[your_port_number_here]
+```
+By default, the server will use localhost:4020, but when the PORT variable set in the .env file, server.js will use that port number and serve it accordingly.
+As seen in /server/server.js:
+```bash
+const PORT = process.env.PORT || 4020
+```
