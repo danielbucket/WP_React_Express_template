@@ -1,17 +1,19 @@
 {
-  "name": "reactwebpacktestapp",
+  "name": "wp_react_express_boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
-    "start": "node server.js"
+    "dev": "NODE_ENV=development webpack serve --config webpack.common.js --env development",
+    "build": "NODE_ENV=production webpack --config webpack.common.js",
+    "start": "NODE_ENV=production node server/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.26.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "handlebars": "^4.7.8",
     "handlebars-loader": "^1.7.3",

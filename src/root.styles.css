@@ -1,3 +1,7 @@
+:root {
+	--banana-candy-yellow: rgb(237 230 93);
+}
+
 *,
 *:before,
 *:after {
